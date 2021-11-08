@@ -6,10 +6,11 @@ using namespace std;
 
 int main()
 {
-    int n = 100000;
+    int compare = 0;
+    int n = 10000;
     int a[n];
     GenerateRandomData(a, n);
-    MergeSort_Timing(a, n);
-
+    MergeSort_Compare(a, n, 0, n - 1, compare);
+    cout << compare;
     return 0;
 }
