@@ -86,14 +86,14 @@ void MergeSort(int theArray[], int n, int first, int last)
 
 } // end mergeSort
 
-void MergeSort_Timing(int a[], int n)
+double MergeSort_Timing(int a[], int n)
 {
     //Execution Time measuring codes are retrieved from: How to Measure C++ Time Intervals | Pluralsight. (2020, February 5). Pluralsight. https://www.pluralsight.com/blog/software-development/how-to-measure-execution-time-intervals-in-c--
     auto start = std::chrono::high_resolution_clock::now();
     MergeSort(a, n, 0, n - 1);
     auto finish = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = finish - start;
-    std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+    return elapsed.count();
 }
 
 void merge_Compare(int theArray[], int n, int first, int mid, int last, int &compare)

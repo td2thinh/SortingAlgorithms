@@ -46,14 +46,14 @@ void QuickSort(int a[], int first, int last)
         QuickSort(a, index, last);
 }
 
-void QuickSort_Timing(int a[], int n)
+double QuickSort_Timing(int a[], int n)
 {
     //Execution Time measuring codes are retrieved from: How to Measure C++ Time Intervals | Pluralsight. (2020, February 5). Pluralsight. https://www.pluralsight.com/blog/software-development/how-to-measure-execution-time-intervals-in-c--
     auto start = std::chrono::high_resolution_clock::now();
     QuickSort(a, 0, n - 1);
     auto finish = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = finish - start;
-    std::cout << "Elapsed time: " << elapsed.count() << " s\n";
+    return elapsed.count();
 }
 //Function retrieved from https://stackoverflow.com/questions/7559608/median-of-three-values-strategy by user caiohamamura
 int medianThree_Compare(int a, int b, int c, int &compare)
