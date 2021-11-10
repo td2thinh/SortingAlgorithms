@@ -6,13 +6,14 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    ofstream file("Random Timing.txt");
 
     int dataSize[5] = {10000, 50000, 100000, 300000, 500000};
     string dataOrder[4] = {"Random", "Sorted", "Reverse", "Nearly Sorted"};
-    int i = 0;
+    int i = stoi(argv[1]);
+    string filename = dataOrder[i] + " " + "Timing.txt";
+    ofstream file(filename);
     file << dataOrder[i] << endl;
 
     for (int j = 0; j < 5; j++)
