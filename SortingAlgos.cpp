@@ -1,6 +1,14 @@
 #include "functions.h"
 #include <iostream>
 using namespace std;
+
+void Swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
 //Shell sort----------------------------------------------------------------------------------------------
 int ShellSort(int arr[], int n)
 {
@@ -30,7 +38,7 @@ int ShellSort(int arr[], int n)
     return 0;
 }
 
-void ShellSort_Comparison(int arr[], int n, int &compare)
+void ShellSort_Comparison(int arr[], int n, long long &compare)
 {
     compare = 0;
     for (int gap = n / 2; ++compare, gap > 0; gap /= 2)
@@ -84,7 +92,7 @@ void RadixSort(int arr[], int n)
     delete[] b;
 }
 
-void RadixSort_Comparison(int arr[], int n, int &compare)
+void RadixSort_Comparison(int arr[], int n, long long &compare)
 {
     compare = 0;
 
@@ -164,7 +172,7 @@ double ShakerSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void ShakerSort_Compare(int a[], int n, int &count_compare)
+void ShakerSort_Compare(int a[], int n, long long &count_compare)
 {
     int left = 0;
     int right = n - 1;
@@ -224,7 +232,7 @@ double SelectionSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void SelectionSort_Compare(int a[], int n, int &count_compare)
+void SelectionSort_Compare(int a[], int n, long long &count_compare)
 {
     // One by one move boundary of unsorted subarray
     for (int i = 0; ++count_compare && i < n - 1; i++)
@@ -268,7 +276,7 @@ double InsertionSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void InsertionSort_Compare(int a[], int n, int &count_compare)
+void InsertionSort_Compare(int a[], int n, long long &count_compare)
 {
     for (int i = 1; ++count_compare && i < n; i++)
     {
@@ -327,7 +335,7 @@ double HeapSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void Heapify_Compare(int a[], int n, int i, int &count_compare)
+void Heapify_Compare(int a[], int n, int i, long long &count_compare)
 {
     int largest = i;
     int l = 2 * i + 1;
@@ -347,7 +355,7 @@ void Heapify_Compare(int a[], int n, int i, int &count_compare)
     }
 }
 
-void HeapSort_Compare(int a[], int n, int &count_compare)
+void HeapSort_Compare(int a[], int n, long long &count_compare)
 {
     for (int i = n / 2 - 1; ++count_compare && i >= 0; i--)
         Heapify_Compare(a, n, i, count_compare);
@@ -390,7 +398,7 @@ double BubbleSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void BubbleSort_Compare(int a[], int n, int &count_compare)
+void BubbleSort_Compare(int a[], int n, long long &count_compare)
 {
     bool swapped;
     for (int i = 0; ++count_compare && i < n - 1; i++)
@@ -464,7 +472,7 @@ double QuickSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-int medianThree_Compare(int a, int b, int c, int &compare)
+int medianThree_Compare(int a, int b, int c, long long &compare)
 {
     if ((a > b) ^ (a > c))
     {
@@ -482,7 +490,7 @@ int medianThree_Compare(int a, int b, int c, int &compare)
         return c;
     }
 }
-int partition_Compare(int a[], int first, int last, int &compare)
+int partition_Compare(int a[], int first, int last, long long &compare)
 {
     int mid = (first + last) / 2;
     int i = first;
@@ -506,7 +514,7 @@ int partition_Compare(int a[], int first, int last, int &compare)
     }
     return i;
 }
-void QuickSort_Compare(int a[], int first, int last, int &compare)
+void QuickSort_Compare(int a[], int first, int last, long long &compare)
 {
     int index = partition_Compare(a, first, last, compare);
     if (++compare && first < index - 1)
@@ -609,7 +617,7 @@ double MergeSort_Timing(int a[], int n)
     return elapsed.count();
 }
 
-void merge_Compare(int theArray[], int n, int first, int mid, int last, int &compare)
+void merge_Compare(int theArray[], int n, int first, int mid, int last, long long &compare)
 {
     int tempArray[n]; // Temporary array
     // Initialize the local indices to indicate the subarrays
@@ -676,7 +684,7 @@ void merge_Compare(int theArray[], int n, int first, int mid, int last, int &com
 
 } // end merge
 
-void MergeSort_Compare(int theArray[], int n, int first, int last, int &compare)
+void MergeSort_Compare(int theArray[], int n, int first, int last, long long &compare)
 {
 
     if (++compare && first < last)
@@ -744,7 +752,7 @@ double CountingSort_Timing(int arr[], int n)
     return elapsed.count();
 }
 
-void CountingSort_Comparison(int a[], int n, int &compare)
+void CountingSort_Comparison(int a[], int n, long long &compare)
 {
     compare = 0;
 
@@ -859,7 +867,7 @@ double FlashSort_Timing(int arr[], int n)
     return elapsed.count();
 }
 
-void FlashSort_Compare(int a[], int n, int &compare)
+void FlashSort_Compare(int a[], int n, long long &compare)
 {
     compare = 0;
 
